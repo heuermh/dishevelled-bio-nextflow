@@ -75,7 +75,18 @@ dsh-bio split-vcf -i HGDP00125.hgdp_wgs.20190516.vcf.gz -r 1000 -p HGDP00125.hgd
 mv HGDP00125.hgdp_wgs.20190516.part0.vcf.gz gvcf.vcf.gz
 ```
 
+Block-gzipped (BGZF) versions
+
+```bash
+dsh-bio compress-vcf -i variant.vcf.gz -o variant.vcf.bzf
+```
+
+Bzip2 versions
+
+```bash
+dsh-bio compress-vcf -i variant.vcf.gz -o variant.vcf.bz2
+```
+
 Todo:
 
 FASTQ
-Block-gzipped (BGZF) and Bzip2 versions

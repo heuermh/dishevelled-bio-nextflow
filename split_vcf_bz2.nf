@@ -18,23 +18,23 @@
 
 params.dir = "${baseDir}/example"
 
-fastaFiles = "${params.dir}/*.fa.gz"
-fastas = Channel.fromPath(fastaFiles).map { path -> tuple(path.simpleName, path) }
+vcfFiles = "${params.dir}/**.vcf.bz2"
+vcfs = Channel.fromPath(vcfFiles).map { path -> tuple(path.simpleName, path) }
 
-process split_fasta_gz {
+process split_vcf_bz2 {
   tag { sample }
 
   input:
-    set sample, file(fasta) from fastas
+    set sample, file(vcf) from vcfs
   output:
-    set sample, file("*.fa.gz") into splitFastas
+    set sample, file("*.vcf.bz2") into splitVcfs
 
   """
-  dsh-bio split-fasta -r 100 -p "${sample}." -s ".fa.gz" -i $fasta
+  dsh-bio split-vcf -r 100 -p "${sample}." -s ".vcf.bz2" -i $vcf
   """
 }
 
-splitFastas.subscribe {
+splitVcfs.subscribe {
   println "Split ${it.get(0)} to ${it.get(1).size()} files:"
   println "${it.get(1).toString()}"
 }

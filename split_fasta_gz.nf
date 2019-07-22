@@ -18,7 +18,7 @@
 
 params.dir = "${baseDir}/example"
 
-fastaFiles = "${params.dir}/*.fa.gz"
+fastaFiles = "${params.dir}/**.fa.gz"
 fastas = Channel.fromPath(fastaFiles).map { path -> tuple(path.simpleName, path) }
 
 process split_fasta_gz {

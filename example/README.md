@@ -51,6 +51,13 @@ dsh-bio split-sam -i HG001.hs37d5.300x.21.sam -r 1000 -p HG001.hs37d5.300x.21.pa
 mv HG001.hs37d5.300x.21.part0.sam.gz alignment.sam.gz
 ```
 
+FASTQ example
+
+```bash
+samtools fastq alignment.sam.gz -N -1 alignment_1.fq.gz -2 alignment_2.fq.gz
+samtools fastq alignment.sam.gz -N -1 alignment_1.fq.bgz -2 alignment_2.fq.bgz
+```
+
 Variant example
 
 ```bash
@@ -86,7 +93,3 @@ Bzip2 versions
 ```bash
 dsh-bio compress-vcf -i variant.vcf.gz -o variant.vcf.bz2
 ```
-
-Todo:
-
-FASTQ

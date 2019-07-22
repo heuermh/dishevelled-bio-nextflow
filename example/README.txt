@@ -74,3 +74,8 @@ wget ftp://ngs.sanger.ac.uk/production/hgdp/hgdp_wgs.20190516/gVCFs/HGDP00125.hg
 dsh-bio split-vcf -i HGDP00125.hgdp_wgs.20190516.vcf.gz -r 1000 -p HGDP00125.hgdp_wgs.20190516.part -s .vcf.gz
 mv HGDP00125.hgdp_wgs.20190516.part0.vcf.gz gvcf.vcf.gz
 ```
+
+Todo:
+
+FASTQ
+Block-gzipped (BGZF) and Bzip2 versions

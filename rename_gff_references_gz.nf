@@ -18,22 +18,22 @@
 
 params.dir = "${baseDir}/example"
 
-vcfFiles = "${params.dir}/**.vcf.bgz"
-vcfs = Channel.fromPath(vcfFiles).map { path -> tuple(path.simpleName, path) }
+gff3Files = "${params.dir}/**.gff3.gz"
+gff3s = Channel.fromPath(gff3Files).map { path -> tuple(path.simpleName, path) }
 
-process remap_phase_set_bgz {
+process remap_dbsnp_gz {
   tag { sample }
 
   input:
-    set sample, file(vcf) from vcfs
+    set sample, file(gff3) from gff3s
   output:
-    set sample, file("${sample}.remapped.ps.vcf.bgz") into remappedVcfs
+    set sample, file("${sample}.renamed.refs.gff3.gz") into remappedGff3s
 
   """
-  dsh-bio remap-phase-set -i $vcf -o ${sample}.remapped.ps.vcf.bgz
+  dsh-bio rename-gff3-references -i $gff3 -o ${sample}.renamed.refs.gff3.gz
   """
 }
 
-remappedVcfs.subscribe {
-  println "Remapped ${it.get(0)} Type=String PS phase set ids in VCF format to Type=Integer into file ${it.get(1)}"
+remappedGff3s.subscribe {
+  println "Renamed ${it.get(0)} references into file ${it.get(1)}"
 }

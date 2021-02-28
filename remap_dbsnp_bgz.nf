@@ -21,19 +21,19 @@ params.dir = "${baseDir}/example"
 vcfFiles = "${params.dir}/**.vcf.bgz"
 vcfs = Channel.fromPath(vcfFiles).map { path -> tuple(path.simpleName, path) }
 
-process remap_phase_set_bgz {
+process remap_dbsnp_bgz {
   tag { sample }
 
   input:
     set sample, file(vcf) from vcfs
   output:
-    set sample, file("${sample}.remapped.ps.vcf.bgz") into remappedVcfs
+    set sample, file("${sample}.remapped.dbsnp.vcf.bgz") into remappedVcfs
 
   """
-  dsh-bio remap-phase-set -i $vcf -o ${sample}.remapped.ps.vcf.bgz
+  dsh-bio remap-dbsnp -i $vcf -o ${sample}.remapped.dbsnp.vcf.bgz
   """
 }
 
 remappedVcfs.subscribe {
-  println "Remapped ${it.get(0)} Type=String PS phase set ids in VCF format to Type=Integer into file ${it.get(1)}"
+  println "Remapped ${it.get(0)} Type=String DB flags to DB Type=Flag and dbsnp Type=String fields into file ${it.get(1)}"
 }

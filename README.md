@@ -5,7 +5,7 @@ dsh-bio workflow processes implemented via Nextflow. Apache 2 licensed.
 ## Summary
 
 [dishevelled.org bio](https://github.com/heuermh/dishevelled-bio) provides a
-set of command line tools for BED, FASTA, FASTQ, GFA1/2, GFF3, SAM, and VCF files.
+set of command line tools for BED, FASTA, FASTQ, GAF, GFA1/2, GFF3, PAF, SAM, and VCF files.
 
 Some of those command line tools are wrapped here for use in [Nextflow](https://www.nextflow.io/)
 workflows.  `dsh-bio` can be installed via [Homebrew](https://github.com/brewsci/homebrew-bio),
@@ -38,3 +38,9 @@ Duration    : 3.6s
 CPU hours   : (a few seconds)
 Succeeded   : 3
 ```
+
+## nf-core modules
+
+To use [dishevelled.org bio](https://github.com/heuermh/dishevelled-bio) in Nextflow DSL2, please
+see [nf-core modules](https://github.com/nf-core/modules).  `dsh_filterbed` and `dsh_splitbed` are
+provided as examples; other DSL2 tool definitions might easily adapted from these.

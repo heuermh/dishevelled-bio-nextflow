@@ -23,6 +23,7 @@ beds = Channel.fromPath(bedFiles).map { path -> tuple(path.simpleName, path) }
 
 process split_bed_bgz {
   tag { sample }
+  container "quay.io/biocontainers/dsh-bio:2.0.4--0"
 
   input:
     set sample, file(bed) from beds

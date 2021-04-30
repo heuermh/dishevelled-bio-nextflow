@@ -19,3 +19,5 @@
 echo "removing temporary nextflow files"
 rm -Rf work
 find . -name '*.nextflow*' | xargs rm -Rf
+rm trace.txt*
+rm report.html*

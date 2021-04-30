@@ -8,7 +8,7 @@ dsh-bio workflow processes implemented via Nextflow. Apache 2 licensed.
 set of command line tools for BED, FASTA, FASTQ, GAF, GFA1/2, GFF3, PAF, SAM, and VCF files.
 
 Some of those command line tools are wrapped here for use in [Nextflow](https://www.nextflow.io/)
-workflows.  `dsh-bio` can be installed via [Homebrew](https://github.com/brewsci/homebrew-bio),
+DSL1 workflows.  `dsh-bio` can be installed via [Homebrew](https://github.com/brewsci/homebrew-bio),
 [Bioconda](https://bioconda.github.io/), or run via [Docker](https://biocontainers.pro/#/)
 or [Singularity](https://biocontainers.pro).
 

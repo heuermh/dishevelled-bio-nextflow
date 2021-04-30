@@ -23,6 +23,7 @@ vcfs = Channel.fromPath(vcfFiles).map { path -> tuple(path.simpleName, path) }
 
 process split_vcf_bz2 {
   tag { sample }
+  container "quay.io/biocontainers/dsh-bio:2.0.4--0"
 
   input:
     set sample, file(vcf) from vcfs

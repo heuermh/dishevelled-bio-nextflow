@@ -23,7 +23,7 @@ beds = Channel.fromPath(bedFiles).map { path -> tuple(path.simpleName, path) }
 
 process remap_dbsnp_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.4--0"
+  container "quay.io/biocontainers/dsh-bio:2.0.4--hdfd78af_0"
 
   input:
     set sample, file(bed) from beds

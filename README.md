@@ -42,5 +42,5 @@ Succeeded   : 3
 ## nf-core modules
 
 To use [dishevelled.org bio](https://github.com/heuermh/dishevelled-bio) in Nextflow DSL2, please
-see [nf-core modules](https://github.com/nf-core/modules).  `dshbio_filterbed` and `dshbio_splitbed`
-are provided as examples; other DSL2 tool definitions might easily adapted from these.
+see [nf-core modules](https://github.com/nf-core/modules).  `dshbio_exportsegments`, `dshbio_filterbed`,
+and `dshbio_splitbed` are provided as examples; other DSL2 tool definitions might easily adapted from these.

@@ -21,9 +21,9 @@ params.dir = "${baseDir}/example"
 vcfFiles = "${params.dir}/**.vcf.bgz"
 vcfs = Channel.fromPath(vcfFiles).map { path -> tuple(path.simpleName, path) }
 
-process remap_dbsnp_bgz {
+process rename_vcf_references_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
 
   input:
     set sample, file(vcf) from vcfs

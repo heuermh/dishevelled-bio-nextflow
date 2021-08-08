@@ -23,15 +23,15 @@ gfas = Channel.fromPath(gfaFiles).map { path -> tuple(path.simpleName, path) }
 
 process traverse_paths_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
 
   input:
     set sample, file(gfa) from gfas
   output:
-    set sample, file("${gfa}.traversals.gfa.bgz") into traversedGfas
+    set sample, file("${sample}.traversals.gfa.bgz") into traversedGfas
 
   """
-  dsh-bio traverse-paths -i ${gfa} -o "${gfa}.traversals.gfa.bgz"
+  dsh-bio traverse-paths -i ${gfa} -o "${sample}.traversals.gfa.bgz"
   """
 }
 

@@ -25,6 +25,7 @@ fastas = Channel.fromPath(fastaFiles).map { path -> tuple(path.simpleName, path)
 
 process nf_create_sequence_dictionary_gz {
   tag { sample }
+  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
 
   input:
     tuple val(sample), val(fasta) from fastas

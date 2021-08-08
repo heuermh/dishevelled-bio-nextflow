@@ -23,7 +23,7 @@ pafs = Channel.fromPath(pafFiles).map { path -> tuple(path.simpleName, path) }
 
 process split_paf_gz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
 
   input:
     set sample, file(paf) from pafs

@@ -23,15 +23,15 @@ gfas = Channel.fromPath(gfaFiles).map { path -> tuple(path.simpleName, path) }
 
 process truncate_paths_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
 
   input:
     set sample, file(gfa) from gfas
   output:
-    set sample, file("${gfa}.truncated.gfa.bgz") into truncatedGfas
+    set sample, file("${sample}.truncated.gfa.bgz") into truncatedGfas
 
   """
-  dsh-bio truncate-paths -i ${gfa} -o "${gfa}.truncated.gfa.bgz"
+  dsh-bio truncate-paths -i ${gfa} -o "${sample}.truncated.gfa.bgz"
   """
 }
 

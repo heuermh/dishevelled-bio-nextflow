@@ -21,9 +21,9 @@ params.dir = "${baseDir}/example"
 bedFiles = "${params.dir}/**.bed.bgz"
 beds = Channel.fromPath(bedFiles).map { path -> tuple(path.simpleName, path) }
 
-process remap_dbsnp_bgz {
+process rename_bed_references_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
 
   input:
     set sample, file(bed) from beds

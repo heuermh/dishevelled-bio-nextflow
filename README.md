@@ -44,3 +44,22 @@ Succeeded   : 3
 To use [dishevelled.org bio](https://github.com/heuermh/dishevelled-bio) in Nextflow DSL2, please
 see [nf-core modules](https://github.com/nf-core/modules).  `dshbio_exportsegments`, `dshbio_filterbed`,
 and `dshbio_splitbed` are provided as examples; other DSL2 tool definitions might easily adapted from these.
+
+
+## In process execution via `exec`
+
+For an example of calling `dsh-bio` in process via the Nextflow process `exec:` block, see [nf_create_sequence_dictionary_gz.nf](https://github.com/heuermh/dishevelled-bio-nextflow/blob/master/nf_create_sequence_dictionary_gz.nf).
+
+To run this workflow, provide `dsh-bio` jar files via the Nextflow `-lib` command line parameter, e.g., when installed via Homebrew on OSX
+```bash
+$ nextflow run \
+  -lib /usr/local/Cellar/dsh-bio/${version}/libexec/lib/ \
+  nf_create_sequence_dictionary_gz.nf
+
+N E X T F L O W  ~  version 21.04.1
+Launching `nf_create_sequence_dictionary_gz.nf` [hopeful_colden] - revision: 314a8e292d
+executor >  local (2)
+[5e/35b888] process > nf_create_sequence_dictionary_gz (reference) [100%] 2 of 2 ✔
+Created sequence dictionary work/8f/666388eae1c490cc0acca73efe6193/transcript.fa.dict
+Created sequence dictionary work/5e/35b888f89752bf6e2d8c0424d5786e/reference.fa.dict
+```

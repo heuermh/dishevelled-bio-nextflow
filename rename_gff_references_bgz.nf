@@ -23,7 +23,7 @@ gff3s = Channel.fromPath(gff3Files).map { path -> tuple(path.simpleName, path) }
 
 process rename_gff_references_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.6--hdfd78af_0"
 
   input:
     set sample, file(gff3) from gff3s

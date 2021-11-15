@@ -23,7 +23,7 @@ beds = Channel.fromPath(bedFiles).map { path -> tuple(path.simpleName, path) }
 
 process split_bed_gz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.5--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.0.6--hdfd78af_0"
 
   input:
     set sample, file(bed) from beds

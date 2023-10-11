@@ -23,7 +23,7 @@ fastqs = Channel.fromFilePairs(fastqFiles, size: 2)
 
 process interleave_fastq_gz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.0.8--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:2.3--hdfd78af_0"
 
   input:
     set sample, file(fastq) from fastqs

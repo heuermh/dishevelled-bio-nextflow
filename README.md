@@ -39,6 +39,27 @@ CPU hours   : (a few seconds)
 Succeeded   : 3
 ```
 
+## Nextflow DSL1
+
+Per https://www.nextflow.io/docs/stable/dsl1.html
+
+> In Nextflow version `22.03.0-edge`, DSL2 became the default DSL version. In version `22.12.0-edge`,
+> DSL1 support was removed, and the Nextflow documentation was updated to use DSL2 by default.
+
+Thus these scripts no longer work on the current version, for example
+
+```bash
+$ nextflow create_sequence_dictionary_gz.nf
+
+ N E X T F L O W   ~  version 24.04.2
+
+Launching `create_sequence_dictionary_gz.nf` [high_carlsson] DSL2 - revision: 3534dcfd6d
+
+ERROR ~ No such variable: sequenceDictionaries
+
+ -- Check script 'create_sequence_dictionary_gz.nf' at line: 38 or see '.nextflow.log' file for more details
+ ```
+
 ## nf-core modules
 
 To use [dishevelled.org bio](https://github.com/heuermh/dishevelled-bio) in Nextflow DSL2, please

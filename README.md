@@ -1,5 +1,5 @@
 # dishevelled-bio-nextflow
-dsh-bio workflow processes implemented via Nextflow. Apache 2 licensed.
+dsh-bio workflow processes implemented via Nextflow DSL1. Apache 2 licensed.
 
 
 ## Summary

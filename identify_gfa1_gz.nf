@@ -23,7 +23,7 @@ gfas = Channel.fromPath(gfaFiles).map { path -> tuple(path.simpleName, path) }
 
 process identify_gfa1_gz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:3.0--hdfd78af_0"
 
   input:
     set sample, file(gfa) from gfas

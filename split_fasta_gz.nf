@@ -23,7 +23,7 @@ fastas = Channel.fromPath(fastaFiles).map { path -> tuple(path.simpleName, path)
 
 process split_fasta_gz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:3.0--hdfd78af_0"
 
   input:
     set sample, file(fasta) from fastas

@@ -23,7 +23,7 @@ fastqs = Channel.fromPath(fastqFiles).map { path -> tuple(path.simpleName, path)
 
 process split_interleaved_fastq_bgz {
   tag { sample }
-  container "quay.io/biocontainers/dsh-bio:2.4--hdfd78af_0"
+  container "quay.io/biocontainers/dsh-bio:3.0--hdfd78af_0"
 
   input:
     set sample, file(fastq) from fastqs
